@@ -15,6 +15,18 @@ mongoose.connect(process.env.MONGODB_URI, {
   useFindAndModify: false,
 });
 
+const characterRoutes = require("./routes/character");
+app.use(characterRoutes);
+
+const comicRoutes = require("./routes/comic");
+app.use(comicRoutes);
+
+const userRoutes = require("./routes/user");
+app.use(userRoutes);
+
+const favoriteRoutes = require("./routes/favorite");
+app.use(favoriteRoutes);
+
 app.get("/", (req, res) => {
   res.status(200).json({ message: "welcome to the marvel server." });
 });
